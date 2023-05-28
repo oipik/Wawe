@@ -106,12 +106,12 @@ body {
   left: 0;
   right: 0;
   z-index: 10;
-  background: url('../images/header-bgover.png');
+  /* background: url('../images/header-bgover.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
-  /* overflow-y: hidden; */
-  /* height: 100px;   */
+  overflow-y: hidden; 
+  height: 100px;   */
 }
 
 .header__bgover {
@@ -395,7 +395,7 @@ body {
 .gallery__numbers {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 198px;
+  /* margin-bottom: 198px; */
 }
 
 .gallery__number-item {
@@ -420,7 +420,7 @@ body {
 
 
 .blog {
-  padding-bottom: 200px;
+  padding-top: 200px;
 }
 
 .blog__title {
@@ -503,6 +503,7 @@ body {
 
 
 .our-team {
+  padding-top: 200px;
   padding-bottom: 204px;
 }
 
@@ -594,7 +595,7 @@ li span {
 }
 
 .map-wrapper {
-  padding: 200px 0;
+  padding-top: 200px;
 }
 .map-wrapper__inner {
   background-image: url('../images/map-one.jpg');
@@ -612,7 +613,7 @@ li span {
 }
 
 .connection {
-  padding-bottom: 200px;
+  padding: 200px;
 }
 
 .connection__title {
@@ -763,9 +764,11 @@ form button {
   .about,
   .school__inner,
   .higher,
-  .service__inner,
-  .map-wrapper {
+  .service__inner{
     padding: 120px 0;
+  }
+  .map-wrapper {
+    padding-top: 120px;
   }
   .about__text-inner {
     margin-right: 50px;

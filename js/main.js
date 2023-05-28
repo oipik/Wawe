@@ -1,26 +1,46 @@
-$(function() {
-   
-   $(".menu").on("click","a", function (event) {
-		//отменяем стандартную обработку нажатия по ссылке
-		event.preventDefault();
+$(function () {
 
-		//забираем идентификатор бока с атрибута href
-		var id  = $(this).attr('href'),
+	$('.blog-slider__items').slick({
+		dots: true,
+	})
 
-		//узнаем высоту от начала страницы до блока на который ссылается якорь
-			top = $(id).offset().top;
-		
-		//анимируем переход на расстояние - top за 1500 мс
-		$('body,html').animate({scrollTop: top}, 1500);
+	$('.menu__btn, .menu a').on('click', function () {
+		$('.menu__list').toggleClass('menu__list--active');
 	});
 
-   $('.blog-slider__items').slick({
-      dots:true,
-   })
+	var mixer = mixitup('.gallery__content');
+});
 
-   $('.menu__btn, .menu a').on('click', function(){ 
-      $('.menu__list').toggleClass('menu__list--active');
-   });
-   
-   var mixer = mixitup('.gallery__content');
+window.addEventListener('DOMContentLoaded', () => {
+	const menu = document.querySelector('.menu__list'),
+		img = document.querySelector('.header__bgover');
+
+	// menu scroll
+	menu.addEventListener('click', (event) => {
+		event.preventDefault();
+		let target = event.target;
+
+		if (target.tagName === 'A') {
+			let idItem = target.getAttribute('href');
+			stepToBlock(idItem);
+		}
+
+		function stepToBlock(item) {
+			document.querySelector(item).scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			})
+		}
+
+	});
+
+
+	// background menu
+	window.addEventListener('scroll', () => {
+		if (window.pageYOffset > 100) {
+			img.style.height = '100px';
+		} else {
+			img.style.height = '';
+		}
+	})
 });
